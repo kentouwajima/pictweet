@@ -13,9 +13,15 @@ class TweetsController < ApplicationController
     redirect_to '/'
   end
   
+  def destroy
+    tweet = Tweet.find(params[:id])
+    tweet.destroy
+    redirect_to '/'
+  end
+  
   private
   def tweet_params
     params.require(:tweet).permit(:name, :image, :text)
   end
-  
+
 end
